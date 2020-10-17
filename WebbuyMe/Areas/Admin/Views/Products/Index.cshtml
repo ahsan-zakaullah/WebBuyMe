@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="alert alert-info clearfix">
+                <a asp-action="Index" style="font-size:200%;">Products list</a>
+                <a asp-action="Create" type="button" class="btn btn-primary btn-lg pull-right"><i class="fas fa-plus-square"></i> New Product Types</a>
+            </div>
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Available)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProductTypes)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SpecialTags)
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.Price)*@
+                                @string.Format("{0:c}",item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Available)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductTypes.Name)
+                            </td>
+                            <td>
+                                @if (!item.SpecialTags.Name.Equals("---None---"))
+                                {
+                                    @Html.DisplayFor(modelItem => item.SpecialTags.Name)
+                                }
+                            </td>
+
+                            <partial name="_TableButtonPartial" model="item.Id" />
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

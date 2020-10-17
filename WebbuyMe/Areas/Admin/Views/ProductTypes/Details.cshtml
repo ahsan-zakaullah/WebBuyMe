@@ -1,0 +1,28 @@
+﻿@model WebbuyMe.Data.ProductTypes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Create</h2>
+
+<h4>ProductTypes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" readonly class="form-control" />
+        </div>
+        <div class="form-group">
+           <a asp-controller="ProductTypes"  asp-action="Edit" asp-route-id="@Model.ProductTypesId">Edit</a>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

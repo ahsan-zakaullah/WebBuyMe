@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SpecialTags>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="alert alert-info clearfix">
+                <a asp-action="Index" style="font-size:200%;">Special Tags List</a>
+                <a asp-action="Create" type="button" class="btn btn-primary btn-lg pull-right"><i class="fas fa-plus-square"></i> New Product Types</a>
+            </div>
+            @if (ViewBag.employee != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Success!</strong> @ViewBag.employee.
+                </div>
+
+            }
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <partial name="_TableButtonPartial" model="item.SpecialTagsId" />
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

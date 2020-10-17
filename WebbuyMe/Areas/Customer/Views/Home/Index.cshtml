@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Products>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<br />
+<br />
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">
+                        <label style="font-size:23px;color:steelblue;">@item.Name</label>
+                    </h4>
+                </div>
+                <img class="card-img-top" style="height:100%" src="@item.Image" alt="Card image">
+
+                <div class="d-flex justify-content-between align-item-center">
+                    <div class="btn-group">
+                        <label style="font:80px;color:#a51313">
+                            <b>$@item.Price</b>/sq.ft
+                        </label>
+                        <a asp-controller="Home" asp-action="Details" style="margin-left:100px"
+                           class="btn btn-primary pull-right btn-outline-info"
+                           asp-route-id="@item.Id">
+                            View Details
+                        </a>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+    }
+</div>
+
+

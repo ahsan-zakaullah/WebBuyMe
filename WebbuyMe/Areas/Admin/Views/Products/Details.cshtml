@@ -1,0 +1,64 @@
+﻿@model WebbuyMe.Models.ViewModel.ProductsViewModel
+@using WebbuyMe.Extensions
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>Product Details</h4>
+<hr />
+
+
+<input type="hidden" asp-for="Products.Id" />
+<form enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="container border rounded row">
+        <div class="row">
+            <input type="hidden" asp-for="Products.Id" />
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label asp-for="Products.Name" class="control-label"></label>
+                    <input asp-for="Products.Name" readonly class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Products.Price" class="control-label"></label>
+                    <input asp-for="Products.Price" readonly class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductTypes" class="control-label"></label>
+                    <input asp-for="@Model.Products.ProductTypes.Name" readonly class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="SpecialTags" class="control-label"></label>
+                    <input asp-for="@Model.Products.SpecialTags.Name" readonly class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Products.ShadeColor" class="control-label"></label>
+                    <input asp-for="Products.ShadeColor" readonly class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Products.Available" class="control-label"></label>
+                    <input asp-for="Products.Available" disabled type="checkbox" />
+                </div>
+                <div class="form-group">
+
+                    <a asp-action="Edit" asp-route-id="@Model.Products.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <img src="@Model.Products.Image" width="100%" style="border-radius:5px; border:1px solid #4cff00" />
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
