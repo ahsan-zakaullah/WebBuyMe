@@ -42,5 +42,10 @@ namespace WebbuyMe.Areas.Customer.Controllers
             }
             return View(ShoppingCartVM);
         }
+
+        public IActionResult Remove()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
