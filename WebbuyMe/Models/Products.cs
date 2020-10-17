@@ -1,4 +1,6 @@
-﻿using WebbuyMe.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using WebbuyMe.Data;
 
 namespace WebbuyMe.Models
 {

@@ -1,4 +1,4 @@
-﻿using WebbuyMe.Data;
+﻿using System.Collections.Generic;
 
 namespace WebbuyMe.Models.ViewModel
 {

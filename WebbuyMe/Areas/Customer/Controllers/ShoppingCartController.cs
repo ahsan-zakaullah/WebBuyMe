@@ -36,7 +36,7 @@ namespace WebbuyMe.Areas.Customer.Controllers
             {
                 foreach (var cartItem in lstShoppingCart)
                 {
-                    Products prod = _db.products.Include(p=>p.SpecialTags).Include(p => p.ProductTypes).Where(p => p.Id == cartItem).FirstOrDefault();
+                    Products prod = _db.products.Include(p => p.SpecialTags).Include(p => p.ProductTypes).FirstOrDefault(p => p.Id == cartItem);
                     ShoppingCartVM.Products.Add(prod);
                 }
             }

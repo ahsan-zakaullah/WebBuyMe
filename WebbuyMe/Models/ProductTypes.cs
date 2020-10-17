@@ -1,4 +1,6 @@
-﻿namespace WebbuyMe.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebbuyMe.Models
 {
     public class ProductTypes
     {
