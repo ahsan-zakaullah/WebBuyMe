@@ -73,10 +73,7 @@ namespace WebbuyMe
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                  name: "areas",
-                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
+                routes.MapRoute("areaRoute", "{area:exists}/{controller=ProductTypes}/{action=Index}/{id?}");
             });
             if (dbContext.Database.GetPendingMigrations().Any())
             {

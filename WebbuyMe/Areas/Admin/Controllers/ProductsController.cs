@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Hosting.Internal;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebbuyMe.Data;
 using WebbuyMe.Models;
 using WebbuyMe.Models.ViewModel;
 using WebbuyMe.Utility;
 
-namespace WebbuyMe.Controllers
+namespace WebbuyMe.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ProductsController : Controller
